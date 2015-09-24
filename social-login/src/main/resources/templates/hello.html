@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Social Login Example Sign in Page</title>
+
+    <!-- Bootstrap -->
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap-social.css}" rel="stylesheet"/>
+    <!--     <link href="css/navbar-fixed-top.css" rel="stylesheet"/> -->
+    <link href="../../webapp/css/sticky-footer-navbar.css" th:href="@{css/sticky-footer-navbar.css}" rel="stylesheet"/>
+
+  </head>
+  <body>
+  	<div th:replace="userbars/userbar :: #bar">userbar</div>
+    <div class="container"><div class="jumbotron"><h1>Connected to Twitter !</h1>
+
+		<h3>Hello, <span th:text="${twitterProfile.name}">Some User</span>!</h3>
+
+		<h4>These are your friends:</h4>
+
+		<ul>
+			<li th:each="friend:${friends}" th:text="${friend.name}">Friend</li>
+		</ul>
+   
+    </div></div>
+	<div th:replace="footers/footer :: #footer">footer</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
