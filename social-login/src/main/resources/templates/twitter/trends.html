@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+
+  <body>
+    <div id="content" class="container"  layout:fragment="content">
+    <h3>Hello, <span th:text="${twitterProfile.name}">Some User</span>!</h3>
+
+		<h3>Daily Twitter Trends</h3>
+			
+			<span th:each="trend : ${trends.trends}">
+				<a href="@{'/twitter/search?query=' + ${trend.query}" th:text="${trend.name}">trend name</a><br/>
+			</span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+		<title>Spring Social Showcase</title>
+		 <link href="/webapp/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+	     <link href="/webapp/css/sticky-footer-navbar.css" th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet"/>
+	     <link href="/webapp/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+
+	</head>
+  <body>
+  	<div id="content" class="content" layout:fragment="content">
+  	
+			<div class="row">
+			    <div class="col-md-4 col-sm-6">
+			    	
+			    </div>
+			     <div class="col-md-4 col-sm-6">
+			    	<div class="panel panel-default">
+			           <div class="panel-heading"><h4>Profile <span th:text="'(' + ${profile.id} + ') - ' + ${profile.location}">Profile Id</span></h4></div>
+			   			<div class="panel-body">
+			              <span>URL <a th:href="${profile.url}" th:text="${profile.url}">profile url</a></span>
+			              <hr/>
+			              <div class="well well-sm">
+			                <div class="media">
+			                    <a class="thumbnail pull-left" href="#">
+			                        <img class="media-object" th:src="${profile.profileImageUrl}"/>
+			                    </a>
+			                    <div class="media-body">
+			                        <h4 class="media-heading" th:text="${profile.name}">John Doe</h4>
+			                		<p><span class="label label-info">10 photos</span> <span class="label label-primary">89 followers</span></p>
+			                        <p>
+			                           <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+			                           <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+			                        </p>
+			                        
+			                    </div>
+			                    <hr/>
+					              <p th:text="${profile.description}">description</p>
+			                </div>
+			               </div>
+			            </div>
+			         </div> 
+			    </div>
+			     <div class="col-md-4 col-sm-6">
+			    	
+			    </div>
+    		</div>
+		</div>
+  </body>
+</html>
