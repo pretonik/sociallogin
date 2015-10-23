@@ -38,12 +38,10 @@ public class SignUpController {
 		Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
 		if (connection != null) {
 			request.setAttribute("message", new Message(MessageType.INFO, "Your " + StringUtils.capitalize(connection.getKey().getProviderId()) + " account is not associated with a Spring Social Showcase account. If you're new, please sign up."), WebRequest.SCOPE_REQUEST);
-//			return SignupForm.fromProviderUser(connection.fetchUserProfile());
 			SignupForm signupForm = SignupForm.fromProviderUser(connection.fetchUserProfile());
-			signUp(signupForm, request);
+//			signUp(signupForm, request);
 			return signupForm;
 		} else {
-//			return "signup";
 			return new SignupForm();
 		}
 		
@@ -54,7 +52,7 @@ public class SignUpController {
 		if (formBinding.hasErrors()) {
 			return null;
 		}
-		Account account = createAccount(form/*, formBinding)*/);
+		Account account = createAccount(form, formBinding);
 		if (account != null) {
 			SignInUtils.signin(account.getUsername());
 			providerSignInUtils.doPostSignUp(account.getUsername(), request);
@@ -63,19 +61,19 @@ public class SignUpController {
 		return null;
 	}
 	
-	private boolean signUp(SignupForm form, WebRequest request){
-		Account account = createAccount(form);
-		if (account != null) {
-			SignInUtils.signin(account.getUsername());
-			providerSignInUtils.doPostSignUp(account.getUsername(), request);
-			return true;
-		}
-		return false;
-	}
+//	private boolean signUp(SignupForm form, WebRequest request){
+//		Account account = createAccount(form);
+//		if (account != null) {
+//			SignInUtils.signin(account.getUsername());
+//			providerSignInUtils.doPostSignUp(account.getUsername(), request);
+//			return true;
+//		}
+//		return false;
+//	}
 
 	// internal helpers
 	
-	private Account createAccount(SignupForm form) {
+	private Account createAccount(SignupForm form, BindingResult formBinding) {
 		try {
 			Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail());
 			accountRepository.create(account);

@@ -1,7 +1,5 @@
 package testingtools.social_login.signup;
 
-import java.util.UUID;
-
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -32,9 +30,7 @@ public class SignupForm {
 		form.setFirstName(providerUser.getFirstName());
 		form.setLastName(providerUser.getLastName());
 		form.setUsername(providerUser.getUsername());
-		form.setPassword(UUID.randomUUID().toString());
 		form.setEmail(providerUser.getEmail());
-		form.setEmail("NO EMAIL");
 		return form;
 	}
 }
