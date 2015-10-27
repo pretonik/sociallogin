@@ -1,2 +1,2 @@
-insert into Account (username, password, firstName, lastName, email) values ('habuma', 'tacos', 'Craig', 'Walls', 'ht@test.com');
-insert into Account (username, password, firstName, lastName, email) values ('rclarkson', 'atlanta', 'Roy', 'Clarkson', 'ra@test.com');
+insert into Account (username, password, firstName, lastName, email) values ('elvis', 'presley', 'elvis', 'presley', 'ep@test.com');
+insert into Account (username, password, firstName, lastName, email) values ('michael', 'jackson', 'michael', 'jackson', 'mj@test.com');
